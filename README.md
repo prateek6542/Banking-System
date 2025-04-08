@@ -1,12 +1,12 @@
 # 💻 DigiBank - Console-Based Banking System 🏦
 
-A simple yet fully functional console-based banking system written in Python. DigiBank allows users to create accounts, deposit and withdraw money, view transaction history, and download transaction history as a PDF — all from the terminal.
+A simple yet fully functional console-based banking system written in Python. DigiBank allows users to create accounts, deposit and withdraw money, and view transaction history from the terminal.
 
 ---
 
 ## 📜 Project Description
 
-DigiBank is a text-based banking system developed using core Python. It simulates the basic functionalities of a bank such as account creation, secure login, deposits, withdrawals, transaction logs, and exporting history to PDF. It uses local JSON files to store account and transaction data persistently.
+DigiBank is a text-based banking system developed using core Python. It simulates a bank's basic functionalities, such as account creation, secure login, deposits, withdrawals, and transaction logs. It uses local JSON files to store account and transaction data persistently.
 
 ---
 
@@ -17,7 +17,7 @@ DigiBank is a text-based banking system developed using core Python. It simulate
 - 💰 **Deposit and Withdraw Money**
 - 📜 **View Transaction History** with date and type
 - 💾 **Data Persistence** using `accounts.json` and `transactions.json`
-- 🎨 **Color-coded UI** using `colorama` for better CLI experience
+- 🎨 **Color-coded UI** using `Colorama` for better CLI experience
 
 ---
 
@@ -25,7 +25,7 @@ DigiBank is a text-based banking system developed using core Python. It simulate
 
 ### 🔧 Run from Terminal
 
-1. Open terminal or command prompt.
+1. Open the terminal or command prompt.
 2. Navigate to the project directory.
 3. Run the main file:
 
@@ -38,7 +38,7 @@ python banking_system.py
 
 Python 3.x
 
-colorama (for colored CLI)
+colorama (for coloured CLI)
 
 
 ### 📦 Install Required Packages
