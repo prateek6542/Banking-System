@@ -51,11 +51,11 @@ pip install colorama
 
 ## 🧪 Sample Menu (User Console)
 
-🏦  Welcome to DigiBank – Your Console. Your Control. 🏦
+### 🏦  Welcome to DigiBank – Your Console. Your Control. 🏦
 ------------------------------------------------------------
 1. 🆕 Create New Account
 2. 🔐 Login to Existing Account
 3. ❌ Exit
 
 ### 🧠 Inspired By
-This project was built to demonstrate how core concepts like file handling, password hashing can be used to create real-world applications in Python.
+This project was built to demonstrate how core concepts like file handling, and password hashing can be used to create real-world applications in Python.
