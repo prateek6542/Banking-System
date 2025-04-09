@@ -7,8 +7,9 @@ from colorama import init, Fore
 
 init(autoreset=True)
 
-ACCOUNTS_FILE = "backend/accounts.json"
-TRANSACTIONS_FILE = "backend/transactions.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ACCOUNTS_FILE = os.path.join(BASE_DIR, "accounts.json")
+TRANSACTIONS_FILE = os.path.join(BASE_DIR, "transactions.json")
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
