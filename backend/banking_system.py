@@ -5,31 +5,38 @@ from datetime import datetime
 from getpass import getpass
 from colorama import init, Fore
 
+# Initialize Colorama for colored text in terminal
 init(autoreset=True)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ACCOUNTS_FILE = os.path.join(BASE_DIR, "accounts.json")
 TRANSACTIONS_FILE = os.path.join(BASE_DIR, "transactions.json")
 
+# Clear screen function
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
-
+    
+# Pause until the user presses enter
 def pause():
     input("\n🔄 Press Enter to continue...")
-
+    
+# Convert password to hashed value for secure storage
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
+# Load JSON data from the file
 def load_data(file_path):
     if os.path.exists(file_path):
         with open(file_path, "r", encoding="utf-8") as f:
             return json.load(f)
     return []
 
+# Save JSON data to file with  formatting
 def save_data(file_path, data):
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f,ensure_ascii=False, indent=4)
 
+# Auto-generate unique account number
 def generate_account_number():
     accounts = load_data(ACCOUNTS_FILE)
     if not accounts:
@@ -37,6 +44,7 @@ def generate_account_number():
     last_account = accounts[-1]
     return str(int(last_account['account_number']) + 1)
 
+# Function to create a new account
 def create_account():
     clear_screen()
     print(Fore.CYAN + "\n🔹 Create a New Bank Account 🔹")
@@ -58,6 +66,7 @@ def create_account():
     hashed_password = hash_password(password)
     account_number = generate_account_number()
 
+    # Load existing accounts and append a new one
     accounts = load_data(ACCOUNTS_FILE)
     accounts.append({
         "account_number": account_number,
@@ -72,6 +81,7 @@ def create_account():
     print(Fore.GREEN + f"\n✅ Account created successfully! Your account number is {account_number}")
     pause()
 
+# Login logic with password validation
 def login():
     clear_screen()
     print("🔐 Login to Your Account")
@@ -96,6 +106,7 @@ def login():
     pause()
     return None, None, None
 
+# Save transaction to file with timestamp
 def record_transaction(account_number, transaction_type, amount):
     transactions = load_data(TRANSACTIONS_FILE)
     transactions.append({
@@ -106,6 +117,7 @@ def record_transaction(account_number, transaction_type, amount):
     })
     save_data(TRANSACTIONS_FILE, transactions)
 
+# Deposit logic with balance update
 def deposit(account_number):
     clear_screen()
     print(Fore.YELLOW + "\n💰 Deposit Money")
@@ -134,6 +146,7 @@ def deposit(account_number):
     print(Fore.RED + "❌ Account not found.")
     pause()
 
+# Withdrawal logic with validation for sufficient balance
 def withdrawal(account_number):
     clear_screen()
     print(Fore.YELLOW + "\n💸 Withdraw Money")
@@ -167,6 +180,7 @@ def withdrawal(account_number):
     print(Fore.RED + "❌ Account not found.")
     pause()
 
+# Display all transactions for a given account
 def display_transaction_summary(account_number):
     clear_screen()
     print(Fore.CYAN + "\n📜 Transaction History")
@@ -192,6 +206,7 @@ def display_transaction_summary(account_number):
     print(Fore.BLUE + "─" * 60)
     pause()
 
+# Main menu 
 def main():
     while True:
         clear_screen()
